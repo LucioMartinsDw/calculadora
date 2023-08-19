@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.calculator {
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 100%;
+    max-width: 320px; /* Limita a largura máxima */
+    margin: 20px; /* Adiciona margem nas laterais */
+}
+
+.display {
+    background-color: #222;
+    color: white;
+    font-size: 36px;
+    padding: 20px;
+    text-align: right;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+}
+
+.btn {
+    background-color: #444;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 24px;
+    outline: none;
+    padding: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
+.dot {
+    grid-area: 4 / 3;
+}
+
+.clear {
+    grid-area: 4 / 4;
+    background-color: #ea5f5f;
+    color: white;
+}
+
+/* Responsividade para dispositivos menores */
+@media (max-width: 600px) {
+    .calculator {
+        max-width: 90%; /* Reduz a largura máxima */
+        margin: 10px; /* Ajusta a margem nas laterais */
+    }
+
+    .display {
+        font-size: 24px; /* Reduz o tamanho da fonte */
+    }
+
+    .btn {
+        font-size: 20px; /* Reduz o tamanho dos botões */
+        padding: 15px; /* Reduz o espaço interno dos botões */
+    }
+}
