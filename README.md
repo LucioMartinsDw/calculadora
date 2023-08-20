@@ -30,7 +30,7 @@ A calculadora é responsiva e se adapta a diferentes tamanhos de tela, incluindo
 
 ## Autor
 
-Desenvolvido por [Seu Nome](https://seu-site.com).
+Desenvolvido por [Lucio De Souza Martins](https://github.com/LucioMartinsDw).
 
 ## Contribuição
 
