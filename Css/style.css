@@ -8,6 +8,29 @@ body {
     background-color: #f0f0f0;
 }
 
+.power-button.active {
+    background-color: #ea5f5f;
+  }
+  
+
+.calculator.disabled {
+    opacity: 0.5;
+  }
+
+  /* Estilos para botões de memória */
+.btn.memory {
+    background-color: #888;
+    color: white;
+  }
+  
+  /* Estilos para botões de operação */
+  .btn.operator {
+    background-color:#888;
+    color: white;
+  }
+  
+  
+
 .footer {
     text-align: center;
     background-color: #333;
@@ -59,7 +82,7 @@ body {
 }
 
 .dot {
-    grid-area: 4 / 3;
+    grid-area: 5 / 4;
 }
 
 .clear {

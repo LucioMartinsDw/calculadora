@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   const display = document.getElementById("result");
   const buttons = document.querySelectorAll(".btn");
-
+  const powerButton = document.getElementById("power-btn");
+  
   let currentValue = "0";
   let currentOperator = null;
   let waitingForSecondOperand = false;
+  let calculatorEnabled = true;
 
   function updateDisplay() {
     display.textContent = currentValue;
@@ -16,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     waitingForSecondOperand = false;
     updateDisplay();
   }
-
+  
   function calculate() {
     const value1 = parseFloat(previousValue);
     const value2 = parseFloat(currentValue);
@@ -39,8 +41,28 @@ document.addEventListener("DOMContentLoaded", function () {
     previousValue = null;
   }
 
+  function toggleCalculator() {
+    calculatorEnabled = !calculatorEnabled;
+    if (calculatorEnabled) {
+      display.style.opacity = 1;
+      buttons.forEach(button => button.disabled = false);
+      powerButton.classList.add("active"); // Adicionar classe "active"
+    } else {
+      display.style.opacity = 0.5;
+      buttons.forEach(button => button.disabled = true);
+      powerButton.classList.remove("active"); // Remover classe "active"
+    }
+  }
+  
+
+  powerButton.addEventListener("click", toggleCalculator);
+
   buttons.forEach(function (button) {
     button.addEventListener("click", function () {
+      if (!calculatorEnabled) {
+        return; // Ignorar cliques quando a calculadora estiver desativada
+      }
+
       const buttonValue = button.textContent;
 
       if (buttonValue >= "0" && buttonValue <= "9") {
@@ -79,6 +101,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Listener para eventos de teclado
   document.addEventListener("keydown", function (event) {
+    if (!calculatorEnabled) {
+      return; // Ignorar eventos de teclado quando a calculadora estiver desativada
+    }
+
     const key = event.key;
 
     if ((key >= "0" && key <= "9") || key === ".") {
